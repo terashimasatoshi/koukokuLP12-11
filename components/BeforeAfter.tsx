@@ -1,5 +1,4 @@
 // components/BeforeAfter.tsx
-import Image from "next/image";
 
 type CaseItem = {
   title: string;
@@ -41,13 +40,11 @@ export default function BeforeAfter() {
             <div className="grid grid-cols-2 gap-4">
               {/* Before */}
               <div className="relative overflow-hidden rounded-2xl">
-                <Image
+                <img
                   src={c.beforeSrc}
                   alt={`${c.title} Before`}
-                  width={720}
-                  height={900}
                   className="h-full w-full object-cover"
-                  sizes="(min-width: 768px) 33vw, 100vw"
+                  loading="lazy"
                 />
                 <span className="absolute left-3 top-3 rounded-full bg-slate-700 px-3 py-1 text-sm font-semibold text-white">
                   Before
@@ -56,14 +53,11 @@ export default function BeforeAfter() {
 
               {/* After */}
               <div className="relative overflow-hidden rounded-2xl">
-                <Image
+                <img
                   src={c.afterSrc}
                   alt={`${c.title} After`}
-                  width={720}
-                  height={900}
                   className="h-full w-full object-cover"
-                  sizes="(min-width: 768px) 33vw, 100vw"
-                  priority
+                  loading="eager"
                 />
                 <span className="absolute left-3 top-3 rounded-full bg-emerald-700 px-3 py-1 text-sm font-semibold text-white">
                   After
