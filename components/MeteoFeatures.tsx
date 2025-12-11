@@ -47,7 +47,7 @@ export const MeteoFeatures: React.FC = () => {
               number="01"
               title="94%ダメージ削減！魔法の「酸熱融合」"
               description="従来の縮毛矯正はもう古い？METEOは酸と熱のパワーで髪の結合を強化！ダメージの原因を極限までカットして、髪を守りながらストレートにします。"
-              image="/images/features/feauter1.png"
+              image="/images/features/feauter1.webp"
               color="bg-pop-green"
             />
           </FadeIn>
@@ -57,7 +57,7 @@ export const MeteoFeatures: React.FC = () => {
               number="02"
               title="ブリーチ毛もOK！あきらめないで"
               description="「傷んでるから無理...」と断られた経験ありませんか？METEOなら、ハイダメージ毛や年齢とともに細くなった髪でも優しく施術できます！"
-              image="/images/features/feauter2.png"
+              image="/images/features/feauter2.webp"
               color="bg-pop-cyan"
             />
           </FadeIn>
@@ -67,7 +67,7 @@ export const MeteoFeatures: React.FC = () => {
               number="03"
               title="「地毛？」って聞かれる自然な仕上がり"
               description="シャキーン！とした不自然な真っ直ぐさはありません。もともと髪が綺麗な人のような、柔らか〜い質感に仕上がります。"
-              image="/images/features/feauter3.png"
+              image="/images/features/feauter3.webp"
               color="bg-pop-yellow text-slate-800"
             />
           </FadeIn>
@@ -77,7 +77,7 @@ export const MeteoFeatures: React.FC = () => {
               number="04"
               title="あなただけの「特製レシピ」"
               description="髪の状態は十人十色。peaceでは、画一的な施術はしません！あなたの髪質に合わせたオーダーメイドの薬剤調合で、ベストな美髪へ導きます。"
-              image="/images/features/feauter4.png"
+              image="/images/features/feauter4.webp"
               color="bg-pop-purple"
             />
           </FadeIn>
