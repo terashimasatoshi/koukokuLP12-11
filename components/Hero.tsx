@@ -1,5 +1,4 @@
 // components/Hero.tsx
-import Image from "next/image";
 
 export default function Hero() {
   return (
@@ -7,23 +6,22 @@ export default function Hero() {
       {/* 背景動画（ある場合） */}
       <video
         className="absolute inset-0 h-full w-full object-cover"
-        src="/videos/hero.mp4"
+        src="/videos/hero.mp4"      // public/videos/hero.mp4
         autoPlay
         muted
         loop
         playsInline
         preload="metadata"
-        poster="/images/hero_poster.jpg"
+        poster="/images/hero_poster.jpg" // 任意
       />
 
-      {/* 画像フォールバック */}
+      {/* 画像フォールバック（動画が再生されない環境向け） */}
       <div className="absolute inset-0 -z-10">
-        <Image
-          src="/images/hero_fallback.jpg"
+        <img
+          src="/images/hero_fallback.jpg" // 任意: public/images/hero_fallback.jpg
           alt="Hero"
-          fill
-          priority
-          className="object-cover"
+          className="h-full w-full object-cover"
+          loading="eager"
         />
       </div>
 
