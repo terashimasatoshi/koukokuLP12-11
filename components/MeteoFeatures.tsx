@@ -1,5 +1,4 @@
 // components/MeteoFeatures.tsx
-import Image from "next/image";
 
 type Feature = {
   title: string;
@@ -35,13 +34,11 @@ export default function MeteoFeatures() {
             className="rounded-3xl bg-white/70 p-4 shadow-lg ring-1 ring-black/5"
           >
             <div className="relative mb-4 overflow-hidden rounded-2xl">
-              <Image
+              <img
                 src={f.src}
                 alt={f.title}
-                width={720}
-                height={540}
                 className="h-full w-full object-cover"
-                sizes="(min-width: 768px) 33vw, 100vw"
+                loading="lazy"
               />
             </div>
             <h3 className="text-lg font-semibold text-slate-800">{f.title}</h3>
