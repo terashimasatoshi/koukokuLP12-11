@@ -1,6 +1,5 @@
 // components/Hero.tsx
-
-export default function Hero() {
+export function Hero() {
   return (
     <section className="relative w-full h-[70vh] min-h-[520px] overflow-hidden">
       {/* 背景動画（ある場合） */}
@@ -18,7 +17,7 @@ export default function Hero() {
       {/* 画像フォールバック（動画が再生されない環境向け） */}
       <div className="absolute inset-0 -z-10">
         <img
-          src="/images/hero_fallback.jpg" // 任意: public/images/hero_fallback.jpg
+          src="/images/hero_fallback.jpg" // 任意
           alt="Hero"
           className="h-full w-full object-cover"
           loading="eager"
