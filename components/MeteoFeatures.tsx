@@ -1,5 +1,4 @@
 // components/MeteoFeatures.tsx
-
 type Feature = {
   title: string;
   desc: string;
@@ -24,7 +23,7 @@ const FEATURES: Feature[] = [
   },
 ];
 
-export default function MeteoFeatures() {
+export function MeteoFeatures() {
   return (
     <section className="mx-auto max-w-6xl px-4 py-12">
       <div className="grid gap-8 md:grid-cols-3">
