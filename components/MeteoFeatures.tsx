@@ -1,50 +1,88 @@
-// components/MeteoFeatures.tsx
-type Feature = {
+import React from 'react';
+import { SectionTitle } from './SectionTitle';
+import { FadeIn } from './FadeIn';
+
+interface FeatureCardProps {
+  number: string;
   title: string;
-  desc: string;
-  src: string;
-};
+  description: string;
+  image: string;
+  color: string;
+}
 
-const FEATURES: Feature[] = [
-  {
-    title: "ダメージ補修 × ツヤ",
-    desc: "METEOの補修でしなやか&うるおい。色持ちもUP。",
-    src: "/images/features/f1.webp",
-  },
-  {
-    title: "うねり抑制 × まとまり",
-    desc: "うねりの原因にアプローチ。乾かすだけで扱いやすく。",
-    src: "/images/features/f2.webp",
-  },
-  {
-    title: "白髪ケア × 質感設計",
-    desc: "白髪世代の質感設計。やわらかく上品な艶へ。",
-    src: "/images/features/f3.webp",
-  },
-];
+const FeatureCard: React.FC<FeatureCardProps> = ({ number, title, description, image, color }) => (
+  <div className="flex flex-col md:flex-row bg-white overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 group rounded-[2rem]">
+    <div className="md:w-1/2 relative h-64 md:h-auto overflow-hidden">
+      <div className={`absolute top-4 left-4 ${color} text-white w-16 h-16 rounded-full flex items-center justify-center font-black text-2xl shadow-md z-10 rotate-12 group-hover:rotate-0 transition-transform duration-300`}>
+        {number}
+      </div>
+      <img 
+        src={image} 
+        alt={title} 
+        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+      />
+    </div>
+    <div className="md:w-1/2 p-8 md:p-10 flex flex-col justify-center">
+      <h3 className="font-sans text-2xl font-black text-slate-700 mb-4 pb-4 border-b-2 border-dashed border-slate-100">
+        {title}
+      </h3>
+      <p className="text-slate-600 leading-relaxed text-base font-medium">
+        {description}
+      </p>
+    </div>
+  </div>
+);
 
-export function MeteoFeatures() {
+export const MeteoFeatures: React.FC = () => {
   return (
-    <section className="mx-auto max-w-6xl px-4 py-12">
-      <div className="grid gap-8 md:grid-cols-3">
-        {FEATURES.map((f) => (
-          <div
-            key={f.title}
-            className="rounded-3xl bg-white/70 p-4 shadow-lg ring-1 ring-black/5"
-          >
-            <div className="relative mb-4 overflow-hidden rounded-2xl">
-              <img
-                src={f.src}
-                alt={f.title}
-                className="h-full w-full object-cover"
-                loading="lazy"
-              />
-            </div>
-            <h3 className="text-lg font-semibold text-slate-800">{f.title}</h3>
-            <p className="mt-2 text-slate-600">{f.desc}</p>
-          </div>
-        ))}
+    <section className="py-20 px-4 bg-white">
+      <div className="max-w-5xl mx-auto">
+        <FadeIn>
+          <SectionTitle en="Features" ja="METEOのスゴいところ" />
+        </FadeIn>
+
+        <div className="space-y-10">
+          <FadeIn direction="right" delay={0}>
+            <FeatureCard 
+              number="01"
+              title="94%ダメージ削減！魔法の「酸熱融合」"
+              description="従来の縮毛矯正はもう古い？METEOは酸と熱のパワーで髪の結合を強化！ダメージの原因を極限までカットして、髪を守りながらストレートにします。"
+              image="/images/features/feauter1.png"
+              color="bg-pop-green"
+            />
+          </FadeIn>
+
+          <FadeIn direction="left" delay={100}>
+            <FeatureCard 
+              number="02"
+              title="ブリーチ毛もOK！あきらめないで"
+              description="「傷んでるから無理...」と断られた経験ありませんか？METEOなら、ハイダメージ毛や年齢とともに細くなった髪でも優しく施術できます！"
+              image="/images/features/feauter2.png"
+              color="bg-pop-cyan"
+            />
+          </FadeIn>
+
+          <FadeIn direction="right" delay={100}>
+            <FeatureCard 
+              number="03"
+              title="「地毛？」って聞かれる自然な仕上がり"
+              description="シャキーン！とした不自然な真っ直ぐさはありません。もともと髪が綺麗な人のような、柔らか〜い質感に仕上がります。"
+              image="/images/features/feauter3.png"
+              color="bg-pop-yellow text-slate-800"
+            />
+          </FadeIn>
+
+          <FadeIn direction="left" delay={100}>
+            <FeatureCard 
+              number="04"
+              title="あなただけの「特製レシピ」"
+              description="髪の状態は十人十色。peaceでは、画一的な施術はしません！あなたの髪質に合わせたオーダーメイドの薬剤調合で、ベストな美髪へ導きます。"
+              image="/images/features/feauter4.png"
+              color="bg-pop-purple"
+            />
+          </FadeIn>
+        </div>
       </div>
     </section>
   );
-}
+};
