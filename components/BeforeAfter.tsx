@@ -1,5 +1,4 @@
 // components/BeforeAfter.tsx
-
 type CaseItem = {
   title: string;
   beforeSrc: string;
@@ -24,7 +23,7 @@ const CASES: CaseItem[] = [
   },
 ];
 
-export default function BeforeAfter() {
+export function BeforeAfter() {
   return (
     <section className="mx-auto max-w-6xl px-4 py-12">
       <div className="grid gap-8 md:grid-cols-3">
