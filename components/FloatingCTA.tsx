@@ -1,5 +1,5 @@
 import React from 'react';
-import { SALON_INFO } from '../constants';
+import { SALON_INFO, trackBookingClick } from '../constants';
 import { MousePointerClick } from 'lucide-react';
 
 export const FloatingCTA: React.FC = () => {
@@ -10,6 +10,7 @@ export const FloatingCTA: React.FC = () => {
           href={SALON_INFO.bookingUrls.takayanagi}
           target="_blank"
           rel="noreferrer"
+          onClick={() => trackBookingClick('takayanagi')}
           className="flex-1 flex flex-col items-center justify-center bg-gradient-to-r from-pop-green to-green-500 text-white py-3 rounded-full shadow-md active:scale-95 transition-transform"
         >
           <span className="text-[10px] font-bold opacity-90 leading-none mb-0.5">高柳店</span>
@@ -21,6 +22,7 @@ export const FloatingCTA: React.FC = () => {
           href={SALON_INFO.bookingUrls.hanando}
           target="_blank"
           rel="noreferrer"
+          onClick={() => trackBookingClick('hanando')}
           className="flex-1 flex flex-col items-center justify-center bg-slate-800 text-white py-3 rounded-full shadow-md active:scale-95 transition-transform"
         >
           <span className="text-[10px] font-bold opacity-90 leading-none mb-0.5">花堂店</span>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { SALON_INFO } from '../constants';
+import { SALON_INFO, trackBookingClick } from '../constants';
 import { Calendar, MousePointerClick } from 'lucide-react';
 
 interface StoreLinksProps {
@@ -29,6 +29,7 @@ export const StoreLinks: React.FC<StoreLinksProps> = ({ className = "", variant 
         href={SALON_INFO.bookingUrls.takayanagi}
         target="_blank"
         rel="noreferrer"
+        onClick={() => trackBookingClick('takayanagi')}
         className={`${baseStyles} ${currentStyle} px-6 py-4 flex-1`}
       >
         <div className="absolute top-0 right-0 p-1 opacity-20">
@@ -47,6 +48,7 @@ export const StoreLinks: React.FC<StoreLinksProps> = ({ className = "", variant 
         href={SALON_INFO.bookingUrls.hanando}
         target="_blank"
         rel="noreferrer"
+        onClick={() => trackBookingClick('hanando')}
         className={`${baseStyles} ${currentStyle} px-6 py-4 flex-1`}
       >
         <div className="absolute top-0 right-0 p-1 opacity-20">

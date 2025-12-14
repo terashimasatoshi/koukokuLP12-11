@@ -1,7 +1,7 @@
 import React from 'react';
 import { FadeIn } from './FadeIn';
 import { StoreLinks } from './StoreLinks';
-import { SALON_INFO } from '../constants';
+import { SALON_INFO, trackBookingClick } from '../constants';
 import { Sparkles, MousePointerClick, Tag, Clock } from 'lucide-react';
 
 export const LimitedOffer: React.FC = () => {
@@ -112,6 +112,7 @@ export const LimitedOffer: React.FC = () => {
                   href={SALON_INFO.bookingUrls.hanando}
                   target="_blank"
                   rel="noreferrer"
+                  onClick={() => trackBookingClick('hanando')}
                   className="group relative flex items-center justify-center w-full bg-gradient-to-r from-slate-800 to-slate-700 text-white rounded-full py-4 px-6 shadow-lg hover:shadow-xl hover:-translate-y-1 active:translate-y-0 transition-all duration-300 overflow-hidden"
                 >
                   <div className="absolute inset-0 bg-white/10 group-hover:bg-white/20 transition-colors"></div>
