@@ -15,6 +15,7 @@ import { FloatingCTA } from './components/FloatingCTA';
 import { FAQ } from './components/FAQ';
 import { SALON_INFO } from './constants';
 import { Calendar } from 'lucide-react';
+import { trackReservationClick } from './utils';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
                 href={SALON_INFO.bookingUrls.takayanagi}
                 target="_blank"
                 rel="noreferrer"
+                onClick={() => trackReservationClick('header', '高柳店')}
                 className="group relative overflow-hidden bg-pop-green text-white px-4 py-2 rounded-full hover:shadow-lg transition-all active:scale-95"
               >
                 <div className="flex flex-col items-center leading-none">
@@ -47,6 +49,7 @@ function App() {
                 href={SALON_INFO.bookingUrls.hanando}
                 target="_blank"
                 rel="noreferrer"
+                onClick={() => trackReservationClick('header', '花堂店')}
                 className="group relative overflow-hidden bg-slate-800 text-white px-4 py-2 rounded-full hover:shadow-lg transition-all active:scale-95"
               >
                  <div className="flex flex-col items-center leading-none">
