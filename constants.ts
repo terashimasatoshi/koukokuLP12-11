@@ -1,6 +1,7 @@
 import { Clock, MapPin, Phone } from 'lucide-react';
+import { trackReservationClick } from './utils';
 
-// Meta Pixel トラッキング関数
+// Meta Pixel & GTM トラッキング関数
 declare global {
   interface Window {
     fbq: (...args: any[]) => void;
@@ -8,12 +9,17 @@ declare global {
 }
 
 export const trackBookingClick = (store: 'takayanagi' | 'hanando') => {
+  // Metaピクセルに送信
   if (typeof window !== 'undefined' && window.fbq) {
     window.fbq('track', 'Lead', {
       content_name: `予約クリック_${store}`,
       content_category: 'booking'
     });
   }
+  
+  // GTMにも送信
+  const storeName = store === 'takayanagi' ? '高柳店' : '花堂店';
+  trackReservationClick('floating', storeName);
 };
 
 export const SALON_INFO = {

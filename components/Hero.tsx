@@ -1,4 +1,6 @@
 // components/Hero.tsx
+import { trackReservationClick } from '../utils';
+
 export function Hero() {
   return (
     <section className="relative w-full h-[70vh] min-h-[520px] overflow-hidden">
@@ -31,7 +33,7 @@ export function Hero() {
       <div className="relative z-10 flex h-full items-center justify-center px-6 text-center">
         <div className="max-w-3xl">
           <h1 className="text-white text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight">
-            髪の“今”を、美しく更新する。
+            髪の"今"を、美しく更新する。
           </h1>
           <p className="mt-4 text-white/90 text-base md:text-lg">
             METEO × カラーケアで、質感・色持ち・艶を最適化。あなた専用の設計で。
@@ -46,6 +48,7 @@ export function Hero() {
             <a
               href="#reserve"
               className="rounded-2xl px-5 py-3 bg-gray-900/70 hover:bg-gray-900 text-white text-sm font-medium shadow border border-white/20"
+              onClick={() => trackReservationClick('hero')}
             >
               予約する
             </a>
