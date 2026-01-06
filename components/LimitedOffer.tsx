@@ -6,7 +6,7 @@ import { Sparkles, MousePointerClick, Tag, Clock } from 'lucide-react';
 
 export const LimitedOffer: React.FC = () => {
   return (
-    <section className="py-20 px-4 bg-gradient-to-br from-pop-green via-pop-greenaccent to-teal-600 text-white relative overflow-hidden">
+    <section id="reserve" className="py-20 px-4 bg-gradient-to-br from-pop-green via-pop-greenaccent to-teal-600 text-white relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 left-0 w-full h-full opacity-20 pointer-events-none">
          <div className="absolute top-[-20%] left-[-10%] w-[500px] h-[500px] rounded-full bg-white blur-[80px] animate-pulse"></div>
