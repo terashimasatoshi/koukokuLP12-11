@@ -30,7 +30,7 @@ export const SALON_INFO = {
   instagramUrl: "https://www.instagram.com/peace.fukui/",
   bookingUrls: {
     takayanagi: "https://beauty.hotpepper.jp/slnH000281422/coupon/",
-    hanando: "https://beauty.hotpepper.jp/slnH000381011/coupon/"
+    hanando: "https://beauty.hotpepper.jp/CSP/bt/reserve/?storeId=H000381011&couponId=CP00000010813113&add=0&addMenu=0&rootCd=10"
   },
   awards: "ホットペッパービューティーアワード 8年連続受賞",
   locations: [
