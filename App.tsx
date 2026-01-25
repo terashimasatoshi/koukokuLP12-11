@@ -1,3 +1,5 @@
+// App.tsx
+// 【改善版】BeforeAfterをHero直下に移動（効果を先に見せる）
 import React from 'react';
 import { Hero } from './components/Hero';
 import { PainPoints } from './components/PainPoints';
@@ -65,8 +67,9 @@ function App() {
 
       <main className="flex-grow pt-16">
         <Hero />
-        <PainPoints />
+        {/* ★改善: BeforeAfterをHero直下に移動（効果を先に見せる）★ */}
         <BeforeAfter />
+        <PainPoints />
         <MeteoFeatures />
         <Diagnosis />
         <WhyUs />
