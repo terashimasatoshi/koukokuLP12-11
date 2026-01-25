@@ -1,4 +1,5 @@
 // components/BeforeAfter.tsx
+// 【改善版】id属性追加、セクションタイトル追加
 type CaseItem = {
   title: string;
   beforeSrc: string;
@@ -25,7 +26,17 @@ const CASES: CaseItem[] = [
 
 export function BeforeAfter() {
   return (
-    <section className="mx-auto max-w-6xl px-4 py-12">
+    <section id="cases" className="mx-auto max-w-6xl px-4 py-12 scroll-mt-20">
+      {/* セクションタイトル追加 */}
+      <div className="text-center mb-8">
+        <h2 className="text-2xl md:text-3xl font-bold text-slate-800">
+          施術例<span className="text-pop-green">ビフォーアフター</span>
+        </h2>
+        <p className="mt-2 text-slate-600 text-sm md:text-base">
+          30代〜50代のお客様の変化をご覧ください
+        </p>
+      </div>
+
       <div className="grid gap-8 md:grid-cols-3">
         {CASES.map((c) => (
           <article
@@ -69,6 +80,16 @@ export function BeforeAfter() {
             </p>
           </article>
         ))}
+      </div>
+
+      {/* CTAボタン追加 */}
+      <div className="mt-8 text-center">
+        <a
+          href="#menu"
+          className="inline-flex items-center gap-2 bg-pop-green hover:bg-pop-green/90 text-white px-8 py-4 rounded-full font-bold shadow-lg transition-all"
+        >
+          この効果を体験する（¥9,900〜）
+        </a>
       </div>
     </section>
   );
