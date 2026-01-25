@@ -66,7 +66,7 @@ export function Hero() {
               ビフォーアフターを見る
             </a>
             <a
-              href="#limited-offer"
+              href=""#reserve""
               className="w-full sm:w-auto rounded-2xl px-6 py-3.5 bg-pop-green hover:bg-pop-green/90 text-white text-sm font-bold shadow-lg transition-all"
               onClick={() => trackReservationClick('hero')}
             >
