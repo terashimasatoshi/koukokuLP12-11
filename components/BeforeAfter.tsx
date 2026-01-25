@@ -85,7 +85,7 @@ export function BeforeAfter() {
       {/* CTAボタン追加 */}
       <div className="mt-8 text-center">
         <a
-          href="#menu"
+          href="#reserve"
           className="inline-flex items-center gap-2 bg-pop-green hover:bg-pop-green/90 text-white px-8 py-4 rounded-full font-bold shadow-lg transition-all"
         >
           この効果を体験する（¥9,900〜）
