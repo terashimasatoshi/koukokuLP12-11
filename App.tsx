@@ -21,7 +21,7 @@ import { trackReservationClick } from './utils';
 
 function App() {
   return (
-    <div className="min-h-screen flex flex-col font-sans text-slate-700 bg-white selection:bg-pop-green selection:text-white">
+    <div className="min-h-screen flex flex-col font-sans text-slate-700 bg-white selection:bg-pop-green selection:text-white overflow-x-hidden">
       <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/80 backdrop-blur-lg border-b border-white/50 shadow-sm">
          <div className="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
             <div className="font-sans text-xl md:text-2xl font-black text-slate-800 tracking-tighter">
