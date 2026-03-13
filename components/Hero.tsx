@@ -6,17 +6,19 @@ import { Sparkles } from 'lucide-react';
 export function Hero() {
   return (
     <section className="relative w-full h-[75vh] min-h-[560px] overflow-hidden">
-      {/* 背景動画 — poster に既存画像を使用し LCP 改善 */}
+      {/* 背景動画 — WebM優先→MP4フォールバック */}
       <video
         className="absolute inset-0 h-full w-full object-cover"
-        src="/videos/hero.mp4"
         autoPlay
         muted
         loop
         playsInline
         preload="auto"
         poster="/images/cases/left_after.webp"
-      />
+      >
+        <source src="/videos/hero.webm" type="video/webm" />
+        <source src="/videos/hero.mp4" type="video/mp4" />
+      </video>
       {/* 画像フォールバック（動画非対応ブラウザ用） */}
       <div className="absolute inset-0 -z-10">
         <img
