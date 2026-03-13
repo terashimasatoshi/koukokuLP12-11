@@ -67,7 +67,7 @@ export function BeforeAfter() {
                   src={c.afterSrc}
                   alt={`${c.title} After`}
                   className="h-full w-full object-cover"
-                  loading="eager"
+                  loading="lazy"
                 />
                 <span className="absolute left-3 top-3 rounded-full bg-emerald-700 px-3 py-1 text-sm font-semibold text-white">
                   After

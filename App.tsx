@@ -1,23 +1,26 @@
 // App.tsx
 // 【改善版】BeforeAfterをHero直下に移動（効果を先に見せる）
-import React from 'react';
+// ファーストビュー以下は React.lazy で遅延読み込み
+import React, { Suspense, lazy } from 'react';
 import { Hero } from './components/Hero';
-import { PainPoints } from './components/PainPoints';
 import { BeforeAfter } from './components/BeforeAfter';
-import { MeteoFeatures } from './components/MeteoFeatures';
-import { Diagnosis } from './components/Diagnosis';
-import { WhyUs } from './components/WhyUs';
-import { Process } from './components/Process';
-import { Menu } from './components/Menu';
-import { LimitedOffer } from './components/LimitedOffer';
-import { Testimonials } from './components/Testimonials';
-import { SalonInfo } from './components/SalonInfo';
-import { Footer } from './components/Footer';
-import { FloatingCTA } from './components/FloatingCTA';
-import { FAQ } from './components/FAQ';
 import { SALON_INFO } from './constants';
 import { Calendar } from 'lucide-react';
 import { trackReservationClick } from './utils';
+
+// ファーストビュー以下のコンポーネントを遅延読み込み
+const PainPoints = lazy(() => import('./components/PainPoints').then(m => ({ default: m.PainPoints })));
+const MeteoFeatures = lazy(() => import('./components/MeteoFeatures').then(m => ({ default: m.MeteoFeatures })));
+const Diagnosis = lazy(() => import('./components/Diagnosis').then(m => ({ default: m.Diagnosis })));
+const WhyUs = lazy(() => import('./components/WhyUs').then(m => ({ default: m.WhyUs })));
+const Process = lazy(() => import('./components/Process').then(m => ({ default: m.Process })));
+const Menu = lazy(() => import('./components/Menu').then(m => ({ default: m.Menu })));
+const LimitedOffer = lazy(() => import('./components/LimitedOffer').then(m => ({ default: m.LimitedOffer })));
+const Testimonials = lazy(() => import('./components/Testimonials').then(m => ({ default: m.Testimonials })));
+const SalonInfo = lazy(() => import('./components/SalonInfo').then(m => ({ default: m.SalonInfo })));
+const Footer = lazy(() => import('./components/Footer').then(m => ({ default: m.Footer })));
+const FloatingCTA = lazy(() => import('./components/FloatingCTA').then(m => ({ default: m.FloatingCTA })));
+const FAQ = lazy(() => import('./components/FAQ').then(m => ({ default: m.FAQ })));
 
 function App() {
   return (
@@ -69,20 +72,24 @@ function App() {
         <Hero />
         {/* ★改善: BeforeAfterをHero直下に移動（効果を先に見せる）★ */}
         <BeforeAfter />
-        <PainPoints />
-        <MeteoFeatures />
-        <Diagnosis />
-        <WhyUs />
-        <Process />
-        <Menu />
-        <LimitedOffer />
-        <Testimonials />
-        <FAQ />
-        <SalonInfo />
+        <Suspense fallback={null}>
+          <PainPoints />
+          <MeteoFeatures />
+          <Diagnosis />
+          <WhyUs />
+          <Process />
+          <Menu />
+          <LimitedOffer />
+          <Testimonials />
+          <FAQ />
+          <SalonInfo />
+        </Suspense>
       </main>
 
-      <Footer />
-      <FloatingCTA />
+      <Suspense fallback={null}>
+        <Footer />
+        <FloatingCTA />
+      </Suspense>
     </div>
   );
 }

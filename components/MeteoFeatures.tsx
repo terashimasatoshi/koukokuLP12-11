@@ -16,10 +16,11 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ number, title, description, i
       <div className={`absolute top-4 left-4 ${color} text-white w-16 h-16 rounded-full flex items-center justify-center font-black text-2xl shadow-md z-10 rotate-12 group-hover:rotate-0 transition-transform duration-300`}>
         {number}
       </div>
-      <img 
-        src={image} 
-        alt={title} 
+      <img
+        src={image}
+        alt={title}
         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+        loading="lazy"
       />
     </div>
     <div className="md:w-1/2 p-8 md:p-10 flex flex-col justify-center">

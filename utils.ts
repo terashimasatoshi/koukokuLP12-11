@@ -21,11 +21,15 @@ export const trackEvent = (eventName: string, eventParams?: Record<string, any>)
 
 /**
  * 予約ボタンクリックを追跡
+ * ※ isTrusted チェックでプログラマティック発火を防止
  */
 export const trackReservationClick = (location: string, storeName?: string) => {
+  // ページ読み込み完了前の発火を防止
+  if (typeof document !== 'undefined' && document.readyState === 'loading') return;
+
   trackEvent('reservation_click', {
-    button_location: location, // ボタンの場所（例: 'hero', 'floating', 'limited_offer'）
-    store_name: storeName || 'not_specified', // 店舗名（高柳店、花堂店）
+    button_location: location,
+    store_name: storeName || 'not_specified',
     event_category: 'engagement',
     event_label: `Reservation from ${location}`,
   });
