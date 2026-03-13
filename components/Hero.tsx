@@ -6,31 +6,16 @@ import { Sparkles } from 'lucide-react';
 export function Hero() {
   return (
     <section className="relative w-full h-[75vh] min-h-[560px] overflow-hidden">
-      {/* 背景動画 — WebM優先→MP4フォールバック */}
-      <video
+      {/* ヒーロー背景画像 */}
+      <img
+        src="/hero.webp"
+        alt="METEO髪質改善の仕上がり"
         className="absolute inset-0 h-full w-full object-cover"
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="auto"
-        poster="/images/cases/left_after.webp"
-      >
-        <source src="/videos/hero.webm" type="video/webm" />
-        <source src="/videos/hero.mp4" type="video/mp4" />
-      </video>
-      {/* 画像フォールバック（動画非対応ブラウザ用） */}
-      <div className="absolute inset-0 -z-10">
-        <img
-          src="/images/cases/left_after.webp"
-          alt="METEO髪質改善の施術結果"
-          className="h-full w-full object-cover"
-          loading="eager"
-          fetchPriority="high"
-          width={1200}
-          height={800}
-        />
-      </div>
+        fetchPriority="high"
+        loading="eager"
+        width={800}
+        height={800}
+      />
       {/* オーバーレイ */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/50" />
 
