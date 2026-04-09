@@ -1,7 +1,8 @@
 // components/Hero.tsx
-// 【改善版】価格表示追加、結果訴求コピー、CTA文言改善
-import { trackReservationClick } from '../utils';
-import { Sparkles } from 'lucide-react';
+// 【Phase D-4】店舗別予約CTA — 花堂メイン + 高柳サブ
+// 花堂 > 高柳 の視覚的階層で Hick's Law を回避しつつ即予約導線を確保
+import { SALON_INFO, trackBookingClick } from '../constants';
+import { ChevronRight } from 'lucide-react';
 
 export function Hero() {
   return (
@@ -9,7 +10,7 @@ export function Hero() {
       {/* ヒーロー背景画像 */}
       <img
         src="/hero.webp"
-        alt="METEO髪質改善の仕上がり"
+        alt="髪質改善の仕上がり"
         className="absolute inset-0 h-full w-full object-cover"
         fetchPriority="high"
         loading="eager"
@@ -21,57 +22,63 @@ export function Hero() {
 
       {/* テキスト */}
       <div className="relative z-10 flex h-full items-center justify-center px-6 text-center">
-        <div className="max-w-3xl">
-          {/* 信頼バッジ - デザイン改善 */}
-          <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm text-white px-4 py-1.5 rounded-full text-xs md:text-sm font-medium mb-4">
-            <Sparkles size={14} className="text-yellow-300" />
-            Hot Pepper Beauty Award 8年連続受賞
-          </div>
-
-          {/* メインコピー - 結果訴求に変更 */}
+        <div className="max-w-3xl w-full">
+          {/* メインコピー — 広告Bのトーンをエコー */}
           <h1 className="text-white text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight leading-tight">
-            乾かすだけで、まとまる髪へ。
+            「なんか変えたい」の答え、
+            <br />
+            ここにあります。
           </h1>
 
-          {/* サブコピー - 希望訴求 + 技術名 */}
+          {/* サブコピー */}
           <p className="mt-4 text-white/90 text-base md:text-lg leading-relaxed">
-            30代からのうねり・パサつき、諦めないで。<br className="hidden sm:inline" />
-            94%ダメージ削減のMETEO髪質改善で叶えます。
+            乾かすだけでキマる。peaceの髪質改善。
           </p>
 
-          {/* ★価格バッジ - 新規追加（最重要改善）★ */}
-          <div className="mt-6 inline-flex items-center gap-2 bg-gradient-to-r from-yellow-400 to-amber-400 text-slate-900 px-5 py-2.5 rounded-full shadow-lg">
-            <span className="text-sm font-bold">初回限定</span>
-            <span className="text-xl md:text-2xl font-black">¥9,900</span>
-            <span className="text-sm font-bold">〜</span>
+          {/* 店舗別予約CTA */}
+          <div className="mt-8 flex flex-col sm:flex-row items-stretch justify-center gap-3 max-w-lg mx-auto">
+            {/* 花堂店 — メイン */}
+            <a
+              href={SALON_INFO.bookingUrls.hanando}
+              target="_blank"
+              rel="noreferrer"
+              onClick={() => trackBookingClick('hanando')}
+              className="relative flex-1 flex flex-col items-center justify-center bg-gradient-to-r from-pop-greenaccent to-pop-green text-white rounded-2xl px-6 py-4 shadow-lg hover:brightness-110 hover:-translate-y-1 active:translate-y-0 transition-all duration-300"
+            >
+              <span className="absolute -top-2.5 -right-2 bg-pop-yellow text-slate-900 text-[10px] font-black px-2.5 py-0.5 rounded-full shadow-md">
+                おすすめ
+              </span>
+              <span className="text-xs font-bold opacity-90 tracking-wider">花堂店</span>
+              <span className="text-sm font-bold mt-0.5 text-white/80">初回限定 ¥9,900〜</span>
+              <span className="text-base font-black mt-1 flex items-center">
+                空席確認・予約 <ChevronRight size={18} className="ml-0.5" />
+              </span>
+            </a>
+
+            {/* 高柳店 — サブ */}
+            <a
+              href={SALON_INFO.bookingUrls.takayanagi}
+              target="_blank"
+              rel="noreferrer"
+              onClick={() => trackBookingClick('takayanagi')}
+              className="flex-1 flex flex-col items-center justify-center bg-white/10 backdrop-blur-sm border-2 border-white/50 text-white rounded-2xl px-6 py-4 hover:bg-white/20 hover:-translate-y-1 active:translate-y-0 transition-all duration-300"
+            >
+              <span className="text-xs font-bold opacity-90 tracking-wider">高柳店</span>
+              <span className="text-sm font-bold mt-0.5 text-white/70">ご新規 全メニュー 20% OFF</span>
+              <span className="text-base font-black mt-1 flex items-center">
+                空席確認・予約 <ChevronRight size={18} className="ml-0.5" />
+              </span>
+            </a>
           </div>
 
-          {/* CTA - 文言改善 */}
-          <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
-            <a
-              href="#cases"
-              className="w-full sm:w-auto rounded-2xl px-6 py-3.5 bg-white hover:bg-white/90 text-gray-900 text-sm font-bold shadow-lg transition-all flex items-center justify-center gap-2"
-            >
-              <span>✨</span>
-              ビフォーアフターを見る
-            </a>
-            <a
-              href="#reserve"
-              className="w-full sm:w-auto rounded-2xl px-6 py-3.5 bg-pop-green hover:bg-pop-green/90 text-white text-sm font-bold shadow-lg transition-all"
-              onClick={() => trackReservationClick('hero')}
-            >
-              ¥9,900〜のメニューを見る
-            </a>
-          </div>
-
-          {/* 設備訴求 - 当日予約OK追加 */}
-          <p className="mt-5 text-white/70 text-xs md:text-sm">
-            🌿 キッズルーム完備・駐車場7台完備・当日予約OK
+          {/* 注記 */}
+          <p className="mt-3 text-white/50 text-[11px]">
+            ※¥9,900は花堂店限定の特別価格です
           </p>
         </div>
       </div>
 
-      {/* スクロール誘導 - 新規追加 */}
+      {/* スクロール誘導 */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 animate-bounce">
         <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center pt-2">
           <div className="w-1 h-2 bg-white/70 rounded-full animate-pulse" />
